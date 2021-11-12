@@ -1,8 +1,7 @@
-let selectedArrays = [];
-let lowerAlphabet = "abcdefghijklmnopqrstuvwxyz".toLowerCase().split("");
-let upperAlphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
-let number = "1234567890".split("");
-let specialCharacter = "!#$%&()*+,-./:;<=>?@[]^_`{|}~".split("")
+let lowerAlphabet = "abcdefghijklmnopqrstuvwxyz".toLowerCase();
+let upperAlphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase();
+let numbers = "1234567890";
+let specialCharacter = "!#$%&()*+,-./:;<=>?@[]^_`{|}~";
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -18,23 +17,28 @@ function writePassword() {
 
 function generatePassword() {
   let initialPassword = "";
-  let wordLength = 10;
-  // let wordLength = prompt("Please enter a length for the password between 8 and 128 characters.")
-  // confirm("Would you like to include lowercase?")
-  // confirm("Would you like to include uppercase?")
-  // confirm("Would you like to include numeric characters?")
-  // confirm("Would you like to include special characters?")
-  let selectedArrays = [...lowerAlphabet, ...upperAlphabet];
+  let selectedArrays = [];
+  let wordLength = prompt("Please enter a length for the password between 8 and 128 characters.");
+  let lowerConfirm = confirm("Would you like to include lowercase?");
+  let upperConfirm = confirm("Would you like to include uppercase?");
+  let numericConfirm = confirm("Would you like to include numeric characters?");
+  let specialConfirm = confirm("Would you like to include special characters?");
+  let confirmCheck = [lowerConfirm, upperConfirm, numericConfirm, specialConfirm]
+  let characterArray = [lowerAlphabet, upperAlphabet, numbers, specialCharacter]
 
+  for (let i = 0;i < 4; i++) {
+    if (confirmCheck[i] === true) {
+      selectedArrays+= characterArray[i]
+    } else {
+
+    }
+  }
 
   for (let i = 0; i < wordLength; i++) {
-    
   let nextCharacter = selectedArrays[Math.floor(Math.random()*selectedArrays.length)];
+    console.log(nextCharacter)
     initialPassword+= nextCharacter
   };
-
-
-
   return initialPassword;
 }
 
