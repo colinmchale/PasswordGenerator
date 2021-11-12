@@ -15,4 +15,4 @@ This website allows the user to create a random password through a series of que
 
 ![alt preview](/PasswordGenerator.png)
 
-[Link to Google](https://www.google.com)
+[Link to Deployed Site](https://colinmchale.github.io/PasswordGenerator/)
