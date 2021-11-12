@@ -16,12 +16,27 @@ function writePassword() {
   
 }
 
-// let selectedArrays = [...lowerAlphabet, ...upperAlphabet]
-// var wordLength = prompt("Please enter a length for the password between 8 and 128 characters.")
-// confirm("Would you like to include lowercase?")
-// confirm("Would you like to include uppercase?")
-// confirm("Would you like to include numeric characters?")
-// confirm("Would you like to include special characters?")
+function generatePassword() {
+  let initialPassword = "";
+  let wordLength = 10;
+  // let wordLength = prompt("Please enter a length for the password between 8 and 128 characters.")
+  // confirm("Would you like to include lowercase?")
+  // confirm("Would you like to include uppercase?")
+  // confirm("Would you like to include numeric characters?")
+  // confirm("Would you like to include special characters?")
+  let selectedArrays = [...lowerAlphabet, ...upperAlphabet];
+
+
+  for (let i = 0; i < wordLength; i++) {
+    
+  let nextCharacter = selectedArrays[Math.floor(Math.random()*selectedArrays.length)];
+    initialPassword+= nextCharacter
+  };
+
+
+
+  return initialPassword;
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
