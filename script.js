@@ -19,12 +19,24 @@ function writePassword() {
 function generatePassword() {
   let initialPassword = "";
   let selectedArrays = [];
-  // the following are propmts for the user to customize their password by answering the questions
+  let lowerConfirm;
+  let upperConfirm;
+  let numericConfirm;
+  let specialConfirm;
+  
+  // the following are propmts for the user to customize their password by answering the question
   let wordLength = prompt("Please enter a length for the password between 8 and 128 characters.");
-  let lowerConfirm = confirm("Would you like to include lowercase?");
-  let upperConfirm = confirm("Would you like to include uppercase?");
-  let numericConfirm = confirm("Would you like to include numeric characters?");
-  let specialConfirm = confirm("Would you like to include special characters?");
+
+    while (isNaN(wordLength) || wordLength < 8 || wordLength > 128) {
+      alert("Value must be between 8 and 128 characters")
+      wordLength = (prompt("Please enter a length for the password between 8 and 128 characters."));
+    }
+    // Continues once user input is validated
+  lowerConfirm = confirm("Would you like to include lowercase?");
+  upperConfirm = confirm("Would you like to include uppercase?");
+  numericConfirm = confirm("Would you like to include numeric characters?");
+  specialConfirm = confirm("Would you like to include special characters?");
+
 
   let confirmCheck = [lowerConfirm, upperConfirm, numericConfirm, specialConfirm]
   let characterArray = [lowerAlphabet, upperAlphabet, numbers, specialCharacter]
